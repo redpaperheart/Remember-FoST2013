@@ -28,7 +28,7 @@ byte lastAttention = 0;
 byte lastMeditation = 0;
 
 // installation logic
-boolean bDebug = false;
+boolean bDebug = true;
 boolean useMeditation = false;
 int activationThresh = 60;
 float damping = 0.025;
@@ -61,12 +61,13 @@ void loop()
   if(bDebug && bigPacket){
     physicalDebug();
     debugInput();
-    //debugLogic();
+    debugLogic();
   }
   outputToServo(output);
 } 
 
 void readControl(){
+  // we can map to the potentiometer to different parameters
   //activationThresh = map(analogRead(potPin), 0, 1023, 0, 100);
   servoSpeed = map(analogRead(potPin), 0, 1023, 0, 255);
   useMeditation = digitalRead(switchPin);

@@ -17,7 +17,8 @@ void loop()
 { 
   float in = analogRead(potPin);
   float out = map(in, 0, 1023, 0, 180);
-  Serial.println(in);
+  Serial.print(in);
+  Serial.print(" -> ");
   Serial.println(out);
 
   myservo.write(out);
