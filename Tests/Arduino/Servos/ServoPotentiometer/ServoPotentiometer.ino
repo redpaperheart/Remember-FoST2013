@@ -19,8 +19,8 @@ void setup()
 
 void loop() 
 { 
-  float in = analogRead(potPin);
-  float out = map(in, 0, 1023, 0, 180);
+  int in = analogRead(potPin);
+  int out = map(in, 0, 1023, 0, 180);
   Serial.print(in);
   Serial.print(" -> ");
   Serial.println(out);
