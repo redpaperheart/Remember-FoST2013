@@ -1,4 +1,5 @@
-#include <VarSpeedServo.h>
+//#include <VarSpeedServo.h>
+#include <Servo.h>
 
 // control
 int potPin = A0;
@@ -6,7 +7,7 @@ int switchPin = 2;
 int ledPin = 12;
 
 // servo
-VarSpeedServo servo; 
+Servo servo; 
 int servoPin = 10;
 int servoSpeed = 200;
 
@@ -48,7 +49,8 @@ float output = 0;
 void setup() 
 { 
   Serial.begin(BAUDRATE);
-  servo.attach(servoPin, 0, 180);
+  //servo.attach(servoPin, 0, 180);
+  servo.attach(servoPin);
 } 
 
 void loop() 

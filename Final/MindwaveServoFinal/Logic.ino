@@ -1,6 +1,7 @@
 
 void outputToServo(float out){
-  servo.slowmove(map(out, 0, 100, 0, 180), servoSpeed);
+  //servo.slowmove(map(out, 0, 100, 0, 180), servoSpeed);
+  servo.write(map(out, 0, 100, 180, 0));
 }
 
 void calculateOutput(){
@@ -55,6 +56,9 @@ void calculateOutput(){
     lastDamp = millis();
   }
   //output = targetOutput;
+  
+  // lets just try to map it directly
+  output = lastAttention;
 }
 
 void countTime(int val){

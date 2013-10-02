@@ -1,13 +1,17 @@
 #include <Servo.h> 
+//#include <VarSpeedServo.h>
+
 
 Servo myservo;
+//VarSpeedServo myservo; 
+
 int potPin = A0;
 int servoPin = 10;
 
 void setup() 
 { 
   myservo.attach(servoPin);  // attaches the servo on pin 9 to the servo object 
-  //myServo.attach(10, 0, 180);
+  //myservo.attach(10, 0, 180);
   //myServo.slowmove (0, 150);
   Serial.begin(9600);
 } 
@@ -22,6 +26,8 @@ void loop()
   Serial.println(out);
 
   myservo.write(out);
+  //myservo.slowmove (out, 50);
+
   delay(20);
 } 
 
