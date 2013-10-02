@@ -24,43 +24,27 @@ void calculateOutput(){
   // installation logic
   float targetOutput = 0;
   if(lastPoorQuality < 26){
-    if (state == 0) { // waiting to grow
-      targetOutput = map(val, 0, 100, 0, 50);
-      if (timeOverThresh > 5000) {
-        changeState(1);
-      }
-    }
-    else if (state == 1) { // grown
-      targetOutput = 100;
-      timeGrown += deltaTime;
-      if (timeGrown > 10000) {
-        changeState(2);
-      }
-    }
-    else if (state == 2) { // waiting to die
-      targetOutput = map(val, 0, 100, 90, 100);
-      if (timeUnderThresh > 5000) {
-        changeState(0);
-      }
-    }
+    targetOutput = map(val, 20, 100, 0, 100);
   }
   else{
     targetOutput = 0.0;
     lastAttention = 0.0;
     lastMeditation = 0.0;
+    targetOutput = potVal;
   }
 
   // damp current output
-  if(millis() - lastDamp > dampFreq){
-    output = (1-damping) * output + damping * targetOutput; 
-    lastDamp = millis();
+  if(bDamp){
+    if(millis() - lastDamp > dampFreq){
+      output = (1-damping) * output + damping * targetOutput; 
+      lastDamp = millis();
+    }
   }
-  output = targetOutput;
+  else{
+    output = targetOutput;
+  }
 }
 
-void countTime(int val){
-
-}
 
 void processNewData(){
   if(bigPacket){ // we have new data
@@ -70,11 +54,5 @@ void processNewData(){
   }
 }
 
-void changeState(int s) {
-  state = s;
-  timeGrown = 0;
-  timeOverThresh = 0;
-  timeUnderThresh = 0;
-}
 
 
