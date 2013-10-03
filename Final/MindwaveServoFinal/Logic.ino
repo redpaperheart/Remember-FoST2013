@@ -55,7 +55,10 @@ void calculateOutput(){
     output = (1-damping) * output + damping * targetOutput; 
     lastDamp = millis();
   }
-  output = targetOutput;
+  
+  // just map it one to one  
+  //output = val;
+  output = lastAttention;
 }
 
 void countTime(int val){

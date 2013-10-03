@@ -2,19 +2,28 @@
 ////////////////////////////////
 // Read data from Serial UART //
 ////////////////////////////////
+byte readFirstByte() {
+  // trying to make it non blocking
+  int ByteRead = 0x00;
+  if(Serial.available()){
+    ByteRead = Serial.read();
+  }
+  return ByteRead;
+}
+
 byte ReadOneByte() {
   int ByteRead;
-  while(!Serial.available());
+  int n = 0;
+  while(!Serial.available() && n < 10000) n++;
   ByteRead = Serial.read();
-  //Serial.print((char)ByteRead);   // echo the same byte out the USB serial (for debug purposes)
   return ByteRead;
 }
 
 void parseMindwave(){
-  bigPacket = false;        
+  bigPacket = false;
 
   // Look for sync bytes
-  if(ReadOneByte() == 170) {
+  if(readFirstByte() == 170) {
     if(ReadOneByte() == 170) {
 
       payloadLength = ReadOneByte();
@@ -62,21 +71,10 @@ void parseMindwave(){
           } 
         }
 
-#if DEBUGOUTPUT
-        if(bigPacket) {
-          // light LEDs or some physical debug
-          Serial.print("PoorQuality: ");
-          Serial.print(poorQuality, DEC);
-          Serial.print(" Attention: ");
-          Serial.print(attention, DEC);
-          Serial.print(" Meditation: ");
-          Serial.print(meditation, DEC);
-          Serial.print(" Time since last packet: ");
-          Serial.print((millis() - lastReceivedPacket)/1000.0, 3);
+        if(bigPacket){
           lastReceivedPacket = millis();
-          Serial.print("\n");
         }
-#endif        
+
       }
       else {
         // Checksum Error
@@ -84,6 +82,17 @@ void parseMindwave(){
     } // end if read 0xAA byte
   } // end if read 0xAA byte
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

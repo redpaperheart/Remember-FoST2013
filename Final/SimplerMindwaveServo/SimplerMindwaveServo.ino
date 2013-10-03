@@ -1,16 +1,13 @@
-//#include <VarSpeedServo.h>
 #include <Servo.h>
 
 // control
 int potPin = A0;
-int switchPin = 2;
 int ledPin = 12;
 int potVal = 0;
 
 // servo
 Servo servo; 
 int servoPin = 10;
-int servoSpeed = 200;
 
 // mindwave
 #define BAUDRATE 57600  // for bluetooth and serial debug
@@ -37,9 +34,6 @@ int activationThresh = 60;
 float damping = 0.025;
 unsigned long dampFreq = 17; //about 60fps
 unsigned long lastDamp = 0;
-unsigned long timeOverThresh = 0;
-unsigned long timeUnderThresh = 0;
-unsigned long timeGrown = 0;
 unsigned long lastMillis;
 float output = 0;
 
@@ -48,8 +42,8 @@ float output = 0;
 void setup() 
 { 
   Serial.begin(BAUDRATE);
-  //servo.attach(servoPin, 0, 180);
   servo.attach(servoPin);
+  pinMode(ledPin, OUTPUT);
 } 
 
 void loop() 
@@ -72,7 +66,7 @@ void readControl(){
   //activationThresh = map(analogRead(potPin), 0, 1023, 0, 100);
   //servoSpeed = map(analogRead(potPin), 0, 1023, 0, 255);
   potVal = analogRead(potPin);
-  useMeditation = digitalRead(switchPin);
+  //useMeditation = digitalRead(switchPin);
 }
 
 void physicalDebug(){
@@ -94,14 +88,8 @@ void debugInput(){
 }
 
 void debugLogic(){
-  Serial.print("state: ");
-  Serial.print(state);
-  Serial.print(" timeUnderThresh: ");
-  Serial.print(timeUnderThresh);
-  Serial.print(" timeOverThresh: ");
-  Serial.print(timeOverThresh);
-  Serial.print(" timeGrown: ");
-  Serial.print(timeGrown);
+  Serial.print("slider: ");
+  Serial.print(potVal);
   Serial.print(" output: ");
   Serial.println(output);
   Serial.println(" ");
