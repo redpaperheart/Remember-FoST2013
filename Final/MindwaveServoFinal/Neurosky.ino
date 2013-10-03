@@ -4,7 +4,7 @@
 ////////////////////////////////
 byte ReadOneByte() {
   int ByteRead;
-  while(!Serial.available());
+  while(!Serial.available()); // just wait until serial is available
   ByteRead = Serial.read();
   //Serial.print((char)ByteRead);   // echo the same byte out the USB serial (for debug purposes)
   return ByteRead;

@@ -31,8 +31,8 @@ boolean bDamp = false;
 boolean bDebug = true;
 boolean useMeditation = false;
 int activationThresh = 60;
-float damping = 0.025;
-unsigned long dampFreq = 17; //about 60fps
+float damping = 0.15;
+unsigned long dampFreq = 30;//17; //about 60fps
 unsigned long lastDamp = 0;
 unsigned long lastMillis;
 float output = 0;

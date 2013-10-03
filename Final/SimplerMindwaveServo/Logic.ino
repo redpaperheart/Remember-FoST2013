@@ -15,7 +15,7 @@ void calculateOutput(){
   // decide if we use mindReader or manual slider depending on signal quality
   float targetOutput = 0;
   if(lastPoorQuality < 27){
-    targetOutput = map(val, 20, 90, 0, 100);
+    targetOutput = map(val, 10, 80, 0, 100);
   }
   else{
     lastAttention = 0.0;
@@ -24,9 +24,11 @@ void calculateOutput(){
   }
 
   // damp current output
-  if(bDamp && (millis() - lastDamp > dampFreq)){
+  if(bDamp){
+   if(millis() - lastDamp > dampFreq){
     output = (1-damping) * output + damping * targetOutput; 
     lastDamp = millis();
+   }
   }
   else{
     output = targetOutput;
