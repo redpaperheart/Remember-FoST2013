@@ -20,3 +20,9 @@ It uses the following components:
 * Switch with 5.6k pulldown resistor
 * LED with 220ohm resistor
 * Potentiometer
+
+Resources
+---------
+* http://developer.neurosky.com/docs/doku.php?id=mindwave_mobile_and_arduino
+* http://www.whizzosoftware.com/forums/blog/1/entry-48-bluesmirf-silver-bluetooth-modem-and-mac-os-x/
+* http://bildr.org/2012/11/big-easy-driver-arduino/
