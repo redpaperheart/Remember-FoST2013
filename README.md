@@ -1,7 +1,7 @@
-FutureOfStorytelling
+Remember - Future of Storytelling
 ====================
 
-Typographic installation for The Future of Storytelling conference
+Remember, a typographic installation shown at the Future of Storytelling conference
 
 Tests
 -----
