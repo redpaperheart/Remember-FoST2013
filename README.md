@@ -19,6 +19,7 @@ It uses the following components:
 * External power supply with variable voltage
 
 Wired the following way:
+
 ![Remember schematics](https://raw.github.com/redpaperheart/Remember-FoST2013/master/MindwaveToServo.png?login=araid&token=03d888aa298b6797310de40911cadade)
 
 The Arduino code to parse the Mindwave data is based on the following [sample from Neurosky](http://developer.neurosky.com/docs/doku.php?id=mindwave_mobile_and_arduino), with some small modifications to make it non-blocking.
