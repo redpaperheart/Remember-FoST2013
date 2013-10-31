@@ -2,7 +2,7 @@ Remember - Future of Storytelling 2013
 ====================
 
 [“Remember”](http://redpaperheart.com/work/remember) is a typographic installation inspired by wooden push toys, that allows you to move physical letters with your mind.
-Created by [Red Paper Heart] as part of the Story Arcade at the [Future of Storytelling](http://futureofstorytelling.org/) conference, Oct 3rd, 2013 - New York City
+Created by [Red Paper Heart](http://redpaperheart.com) as part of the Story Arcade at the [Future of Storytelling](http://futureofstorytelling.org/) conference, Oct 3rd, 2013 - New York City
 
 MindwaveToServo
 ---------------
@@ -19,6 +19,7 @@ It uses the following components:
 * External power supply with variable voltage
 
 Wired the following way:
+
 ![Remember schematics](https://raw.github.com/redpaperheart/Remember-FoST2013/master/MindwaveToServo.png?login=araid&token=03d888aa298b6797310de40911cadade)
 
 The Arduino code to parse the Mindwave data is based on the following [sample from Neurosky](http://developer.neurosky.com/docs/doku.php?id=mindwave_mobile_and_arduino), with some small modifications to make it non-blocking.
