@@ -24,6 +24,6 @@ Wired the following way:
 
 The Arduino code to parse the Mindwave data is based on the following [sample from Neurosky](http://developer.neurosky.com/docs/doku.php?id=mindwave_mobile_and_arduino), with some small modifications to make it non-blocking.
 
-That sample includes a tutorial on how to pair the BlueSmirf with the Mindwave headset. Another good resource on setting up the Bluetooth module can be found [here](http://www.whizzosoftware.com/forums/blog/1/entry-48-bluesmirf-silver-bluetooth-modem-and-mac-os-x/)
+That sample includes a tutorial on how to pair the BlueSmirf with the Mindwave headset. Another good resource on setting up the Bluetooth module can be found [here](http://whizzosoftware.com/blog/2011/12/09/bluesmirf-silver-luetooth-modem-and-mac-osx.html)
 
 For a detailed view of our process and experiments, feel free to check the dev branch of this repository.
